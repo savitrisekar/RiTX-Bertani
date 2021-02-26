@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_home_bg"
+    android:padding="@dimen/dimen_16"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/mcv_data_bertani"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/color_card"
+        app:cardCornerRadius="@dimen/dimen_10"
+        android:elevation="@dimen/dimen_2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/rl_lahan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/dimen_12">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/home_data_bertani"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_18"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/iv_more"
+                    android:text="@string/home_more"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_12"
+                    android:gravity="center_vertical|center"
+                    android:textStyle="bold"/>
+
+                <ImageButton
+                    android:id="@+id/iv_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_arrow_right"
+                    android:background="@color/color_card"/>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/color_line" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/dimen_14"
+                android:paddingBottom="@dimen/dimen_14">
+
+                <RelativeLayout
+                    android:id="@+id/rl_card_lahan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_28"
+                    android:background="@drawable/img_card"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_lahan" />
+
+                </RelativeLayout>
+
+                <ImageView
+                    android:id="@+id/iv_add"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_add_box"
+                    android:layout_marginTop="@dimen/dimen_6"
+                    app:layout_constraintTop_toBottomOf="@id/rl_card_lahan"
+                    app:layout_constraintStart_toStartOf="@id/rl_card_lahan"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/home_menu_lahan"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_12"
+                    android:layout_marginTop="@dimen/dimen_6"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/rl_card_lahan"
+                    app:layout_constraintStart_toEndOf="@id/iv_add"/>
+
+                <RelativeLayout
+                    android:id="@+id/rl_card_akomodasi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/img_card"
+                    app:layout_constraintStart_toEndOf="@id/rl_card_lahan"
+                    app:layout_constraintEnd_toStartOf="@id/rl_card_aktivitas"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_komoditas" />
+
+                </RelativeLayout>
+
+                <ImageView
+                    android:id="@+id/iv_add_komoditas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_6"
+                    android:src="@drawable/ic_add_box"
+                    app:layout_constraintStart_toStartOf="@id/rl_card_akomodasi"
+                    app:layout_constraintTop_toBottomOf="@id/rl_card_akomodasi" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_6"
+                    android:gravity="center"
+                    android:text="@string/home_menu_komoditas"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_12"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@id/iv_add_komoditas"
+                    app:layout_constraintTop_toBottomOf="@id/rl_card_akomodasi" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_card_aktivitas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dimen_28"
+                    android:background="@drawable/img_card"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_aktivitas" />
+
+                </RelativeLayout>
+
+                <ImageView
+                    android:id="@+id/iv_add_aktivitas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_6"
+                    android:src="@drawable/ic_add_box"
+                    app:layout_constraintStart_toStartOf="@id/rl_card_aktivitas"
+                    app:layout_constraintTop_toBottomOf="@id/rl_card_aktivitas" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_6"
+                    android:gravity="center"
+                    android:text="@string/home_menu_aktivitas"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_12"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@id/iv_add_aktivitas"
+                    app:layout_constraintTop_toBottomOf="@id/rl_card_aktivitas" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</RelativeLayout>

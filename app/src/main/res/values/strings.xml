@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">RiTX Bertani Mini App</string>
+
+    <string name="title_app_name">RiTX Bertani</string>
+    <string name="psw_forgot">Lupa kata sandi?</string>
+    <string name="sign_in">Belum punya akun? Daftar</string>
+    <string name="btn_login">Lanjutkan</string>
+    <string name="btn_lahan">Tambah Lahan</string>
+    <string name="hint_psw">Kata Sandi</string>
+    <string name="hint_no_hp">Id Pengguna atau No. Telp</string>
+    <string name="home_data_bertani">Data Bertani</string>
+    <string name="home_more">Lihat</string>
+    <string name="home_menu_lahan">Lahan</string>
+    <string name="home_menu_komoditas">Komoditas</string>
+    <string name="home_menu_aktivitas">Aktivitas</string>
+    <string name="btm_home">Home</string>
+    <string name="btm_bertani">Bertani</string>
+    <string name="btm_notif">Notifikasi</string>
+    <string name="btm_profil">Profil</string>
+    <string name="label_empty_komoditas">Belum ada data komoditas.</string>
+    <string name="label_command">Silakan tambahkan melalui tombol di bawah.</string>
+    <string name="title_name_lahan">Sensor</string>
+    <string name="title_address_lahan">Jl. Foker No. 53</string>
+    <string name="title_add_lahan">Tambah Lahan</string>
+    <string name="title_sensor">Sensor Terdekat</string>
+    <string name="title_data_lahan">Data Lahan</string>
+    <string name="title_nama_lahan">Nama Lahan</string>
+    <string name="title_lokasi_lahan">Lokasi</string>
+    <string name="title_add_sensor_optional">Tambah Sensor (Optional)</string>
+    <string name="title_tambah_sensor">Tambah Sensor</string>
+    <string name="hint_nama_lahan">Tulis Nama Lahan</string>
+    <string name="hint_kecamatan">Tulis Kecamatan</string>
+    <string name="hint_kelurahan">Tulis Kelurahan</string>
+    <string name="label_id_sensor">ID Sensor</string>
+    <string name="hint_id_sensor">Input ID Sensor</string>
+    <string name="hint_add_id_sensor">Tulis ID Sensor</string>
+    <string name="label_or">Atau</string>
+    <string name="label_scan_qr">Scan QR Code</string>
+    <string name="btn_simpan">Simpan</string>
+
+
+    <string-array name="province_list">
+        <item>Pilih Provinsi</item>
+        <item>Yogyakarta</item>
+        <item>Jawa Tengah</item>
+    </string-array>
+
+    <string-array name="city_list">
+        <item>Pilih Kota / Kabupaten</item>
+        <item>Yogyakarta</item>
+        <item>Sleman</item>
+        <item>Bantul</item>
+        <item>Kulon Progo</item>
+        <item>Boyolai</item>
+        <item>Surakarta</item>
+        <item>Magelang</item>
+        <item>Semarang</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

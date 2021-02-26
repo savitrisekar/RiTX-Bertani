@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_home"
+        android:icon="@drawable/ic_home"
+        android:title="@string/btm_home"/>
+    <item
+        android:id="@+id/menu_bertani"
+        android:icon="@drawable/ic_bertani"
+        android:title="@string/btm_bertani"/>
+    <item
+        android:id="@+id/menu_notif"
+        android:icon="@drawable/ic_notifications"
+        android:title="@string/btm_notif"/>
+    <item
+        android:id="@+id/menu_person"
+        android:icon="@drawable/ic_person"
+        android:title="@string/btm_profil"/>
+</menu>

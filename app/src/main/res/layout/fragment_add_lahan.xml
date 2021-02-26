@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_light_green">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/color_toolbar"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:navigationIcon="@drawable/ic_arrow_back">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_add_lahan"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_16" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/appBar">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_16"
+            android:background="@color/white"
+            app:cardCornerRadius="@dimen/dimen_2"
+            app:cardElevation="@dimen/dimen_2">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dimen_6"
+                    android:text="@string/title_data_lahan"
+                    android:textColor="@color/color_text_green"
+                    android:textSize="@dimen/font_18" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/dimen_6"
+                    android:layout_marginBottom="@dimen/dimen_6"
+                    android:background="@color/color_line_grey" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/title_nama_lahan"
+                    android:textColor="@color/color_dark_grey"
+                    android:textSize="@dimen/font_16" />
+
+                <EditText
+                    android:id="@+id/edt_nama_lahan"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:layout_marginStart="@dimen/dimen_16"
+                    android:layout_marginTop="@dimen/dimen_6"
+                    android:layout_marginEnd="@dimen/dimen_16"
+                    android:background="@drawable/bg_round_input_text"
+                    android:hint="@string/hint_nama_lahan"
+                    android:padding="@dimen/dimen_10"
+                    android:textColor="@color/color_grey"
+                    android:textColorHint="@color/color_grey"
+                    android:textSize="@dimen/font_14"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dimen_10"
+                    android:text="@string/title_lokasi_lahan"
+                    android:textColor="@color/color_dark_grey"
+                    android:textSize="@dimen/font_16" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16"
+                    android:layout_marginTop="@dimen/dimen_6"
+                    android:layout_marginEnd="@dimen/dimen_16"
+                    android:background="@drawable/bg_round_input_text">
+
+                    <Spinner
+                        android:id="@+id/spin_region"
+                        android:layout_width="match_parent"
+                        android:layout_height="46dp"
+                        android:spinnerMode="dropdown"
+                        android:textAlignment="center"
+                        android:gravity="center"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16"
+                    android:layout_marginTop="@dimen/dimen_10"
+                    android:layout_marginEnd="@dimen/dimen_16"
+                    android:background="@drawable/bg_round_input_text">
+
+                    <Spinner
+                        android:id="@+id/spin_city"
+                        android:layout_width="match_parent"
+                        android:layout_height="46dp"
+                        android:spinnerMode="dropdown"
+                        android:textAlignment="center"
+                        android:gravity="center"/>
+
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/edt_kecamatan"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:layout_marginStart="@dimen/dimen_16"
+                    android:layout_marginTop="@dimen/dimen_10"
+                    android:layout_marginEnd="@dimen/dimen_16"
+                    android:background="@drawable/bg_round_input_text"
+                    android:hint="@string/hint_kecamatan"
+                    android:padding="@dimen/dimen_10"
+                    android:gravity="center"
+                    android:textColor="@color/color_grey"
+                    android:textColorHint="@color/color_grey"
+                    android:textSize="@dimen/font_14" />
+
+                <EditText
+                    android:id="@+id/edt_kelurahan"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:layout_marginStart="@dimen/dimen_16"
+                    android:layout_marginTop="@dimen/dimen_10"
+                    android:layout_marginEnd="@dimen/dimen_16"
+                    android:background="@drawable/bg_round_input_text"
+                    android:hint="@string/hint_kelurahan"
+                    android:padding="@dimen/dimen_10"
+                    android:gravity="center"
+                    android:textColor="@color/color_grey"
+                    android:textColorHint="@color/color_grey"
+                    android:textSize="@dimen/font_14" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/dimen_6"
+                    android:layout_marginBottom="@dimen/dimen_6"
+                    android:background="@color/color_line_grey" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dimen_10"
+                    android:text="@string/title_add_sensor_optional"
+                    android:textColor="@color/color_dark_grey"
+                    android:textSize="@dimen/font_16" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/label_id_sensor"
+                    android:textColor="@color/color_dark_grey"
+                    android:textSize="@dimen/font_16"
+                    android:layout_marginTop="@dimen/dimen_6"/>
+
+                <EditText
+                    android:id="@+id/edt_id_sensor"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:layout_marginStart="@dimen/dimen_16"
+                    android:layout_marginTop="@dimen/dimen_6"
+                    android:layout_marginEnd="@dimen/dimen_16"
+                    android:background="@drawable/bg_round_input_text"
+                    android:hint="@string/hint_add_id_sensor"
+                    android:padding="@dimen/dimen_10"
+                    android:textColor="@color/color_grey"
+                    android:textColorHint="@color/color_grey"
+                    android:textSize="@dimen/font_14"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dimen_10"
+                    android:text="@string/label_or"
+                    android:textColor="@color/color_dark_grey"
+                    android:textSize="@dimen/font_16" />
+
+                <Button
+                    android:id="@+id/btn_scan_qr"
+                    style="?attr/materialButtonOutlinedStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="@dimen/dimen_16"
+                    android:layout_marginTop="@dimen/dimen_6"
+                    android:layout_marginEnd="@dimen/dimen_16"
+                    android:padding="@dimen/dimen_12"
+                    android:text="@string/label_scan_qr"
+                    android:textAllCaps="false"
+                    android:textColor="@color/color_text_green"
+                    android:textSize="@dimen/font_14"
+                    app:cornerRadius="25.5dp"
+                    app:strokeColor="@color/color_green"
+                    android:layout_marginBottom="@dimen/dimen_16"/>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
