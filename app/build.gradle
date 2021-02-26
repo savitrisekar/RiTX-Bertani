@@ -70,6 +70,7 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:3.12.0'
 
     //scan qr
-    implementation 'me.dm7.barcodescanner:zxing:1.9.8'
+    implementation 'com.journeyapps:zxing-android-embedded:3.6.0'
+    implementation 'com.android.support:appcompat-v7:27.1.1'
 
 }

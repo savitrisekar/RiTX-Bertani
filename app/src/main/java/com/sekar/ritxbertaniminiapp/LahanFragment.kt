@@ -86,6 +86,7 @@ class LahanFragment : Fragment() {
 
             lahan?.let {
                 adapterLahan.setData(it)
+                progressbar.visibility = View.GONE
             }
         })
 

@@ -37,6 +37,8 @@
     <string name="label_or">Atau</string>
     <string name="label_scan_qr">Scan QR Code</string>
     <string name="btn_simpan">Simpan</string>
+    <string name="scan_a_code">Scan a QR Code</string>
+    <string name="result_not_found">Result Not Found</string>
 
 
     <string-array name="province_list">
