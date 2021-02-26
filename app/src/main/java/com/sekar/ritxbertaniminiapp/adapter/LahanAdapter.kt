@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.sekar.ritxbertaniminiapp.R
 import com.sekar.ritxbertaniminiapp.model.DataItem
@@ -12,6 +11,7 @@ import com.sekar.ritxbertaniminiapp.model.DataItem
 class LahanAdapter : RecyclerView.Adapter<LahanAdapter.ViewHolder>() {
 
     private var data: List<DataItem> = listOf()
+    private var listener: OnItemClickListener? = null
 
     fun setData(dataList: List<DataItem>) {
         data = dataList
@@ -30,22 +30,27 @@ class LahanAdapter : RecyclerView.Adapter<LahanAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val dataList = data[position]
 
-        holder.bindItems(data[position])
+        holder.name.text = dataList.displayName
+        holder.serialNumber.text = dataList.serialNumber
+
+        holder.itemView.setOnClickListener {
+            listener!!.OnItemClick(data[position])
+        }
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val name = itemView.findViewById<TextView>(R.id.tv_name)
         val serialNumber = itemView.findViewById<TextView>(R.id.tv_serial_number)
+    }
 
-        fun bindItems(dataItem: DataItem) {
-            name.text = dataItem.displayName
-            serialNumber.text = dataItem.serialNumber
+    fun getDataAt(position: Int): String? {
+        return data[position].id
+    }
 
-            itemView.setOnClickListener {
-                Toast.makeText(it.context, "delete", Toast.LENGTH_SHORT).show()
-            }
-        }
+    interface OnItemClickListener {
+        abstract fun OnItemClick(dataItem: DataItem)
     }
 }

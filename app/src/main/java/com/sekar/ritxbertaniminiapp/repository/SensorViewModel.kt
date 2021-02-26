@@ -2,6 +2,7 @@ package com.sekar.ritxbertaniminiapp.repository
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.sekar.ritxbertaniminiapp.model.CreateRequest
 import kotlinx.coroutines.launch
 
 class SensorViewModel : ViewModel() {
@@ -13,5 +14,13 @@ class SensorViewModel : ViewModel() {
 
     fun getSensor() {
         viewModelScope.launch { repository.getSensor() }
+    }
+
+    fun createSensor(createRequest: CreateRequest) {
+        viewModelScope.launch { repository.createSensor(createRequest) }
+    }
+
+    fun deleteSensor(id: String) {
+        viewModelScope.launch { repository.deleteSensor(id) }
     }
 }

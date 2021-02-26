@@ -6,10 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.*
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.sekar.ritxbertaniminiapp.adapter.LahanAdapter
+import com.sekar.ritxbertaniminiapp.model.CreateRequest
 import com.sekar.ritxbertaniminiapp.repository.SensorViewModel
 import kotlinx.android.synthetic.main.fragment_lahan.*
 
@@ -26,6 +30,7 @@ class LahanFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_lahan, container, false)
 
         viewModel = ViewModelProviders.of(this).get(SensorViewModel::class.java)
+
         return view
     }
 
@@ -35,8 +40,31 @@ class LahanFragment : Fragment() {
         initView()
         setupRecyclerView()
         setupObservers()
+        setupDelete()
 
         viewModel.getSensor()
+    }
+
+    private fun setupDelete() {
+        ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(
+            0,
+            ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
+        ) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                return false
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                viewModel.deleteSensor(
+                    adapterLahan.getDataAt(viewHolder.adapterPosition).toString()
+                )
+                Toast.makeText(requireContext(), "Data deleted", Toast.LENGTH_LONG).show()
+            }
+        }).attachToRecyclerView(rv_lahan)
     }
 
     private fun initView() {
@@ -68,4 +96,17 @@ class LahanFragment : Fragment() {
             }
         })
     }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (resultCode == AppCompatActivity.RESULT_OK && data != null) {
+
+            val createRequest = CreateRequest()
+            viewModel.createSensor(createRequest)
+            Toast.makeText(requireContext(), "Contact Saved!", Toast.LENGTH_SHORT).show()
+        }
+
+    }
+
 }

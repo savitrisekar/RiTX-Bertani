@@ -5,18 +5,25 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.EditText
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProviders
+import com.sekar.ritxbertaniminiapp.model.CreateRequest
+import com.sekar.ritxbertaniminiapp.model.DataItem
+import com.sekar.ritxbertaniminiapp.repository.SensorViewModel
 import kotlinx.android.synthetic.main.activity_input_lahan.*
 
 class InputLahanActivity : AppCompatActivity() {
 
-    lateinit var lahanName: EditText
-    lateinit var idSensor: EditText
+    private lateinit var edtName: EditText
+    private lateinit var edtSerial: EditText
+
+    private lateinit var viewModel: SensorViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_input_lahan)
+
+        viewModel = ViewModelProviders.of(this).get(SensorViewModel::class.java)
 
         val adapaterRegion = ArrayAdapter.createFromResource(
             this,
@@ -39,8 +46,8 @@ class InputLahanActivity : AppCompatActivity() {
 
     private fun initView() {
 
-        lahanName = findViewById(R.id.edt_nama_lahan)
-        idSensor = findViewById(R.id.edt_id_sensor)
+        edtName = findViewById(R.id.edt_nama_lahan)
+        edtSerial = findViewById(R.id.edt_id_sensor)
 
         ll_add_lahan.setOnClickListener {
             saveLahan()
@@ -48,17 +55,25 @@ class InputLahanActivity : AppCompatActivity() {
     }
 
     private fun saveLahan() {
-        if (lahanName.text.isNotEmpty() || spin_province != null || spin_city != null || idSensor.text.isNotEmpty()
-        ) {
+
+        val result = DataItem()
+        val id = result.id
+        val name = edtName.text.toString().trim()
+        val serial = edtSerial.text.toString().trim()
+
+        if (!name.isEmpty() || !serial.isEmpty()) {
+            val createRequest = CreateRequest(
+                null, null, "",
+                serial, "", name, "", ""
+            )
+            viewModel.createSensor(createRequest)  //  insert note to db
 
             val data = Intent()
-            data.putExtra("EXTRA_NAME_LAHAN", "${lahanName.text}")
-            data.putExtra("EXTRA_ID_SENSOR", "${idSensor.text}")
+            data.putExtra("EXTRA_ID", "${id}")
+            data.putExtra("EXTRA_NAME_LAHAN", "${name}")
+            data.putExtra("EXTRA_ID_SENSOR", "${serial}")
             setResult(Activity.RESULT_OK, data)
             finish()
-
-        } else {
-            Toast.makeText(this, "Provide Complete Data", Toast.LENGTH_SHORT).show()
         }
     }
 }
