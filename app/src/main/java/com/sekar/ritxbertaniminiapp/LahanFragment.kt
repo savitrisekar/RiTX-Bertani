@@ -76,7 +76,7 @@ class LahanFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        adapterLahan = LahanAdapter()
+        adapterLahan = LahanAdapter(requireContext())
         rv_lahan.layoutManager = LinearLayoutManager(requireContext())
         rv_lahan.adapter = adapterLahan
     }

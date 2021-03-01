@@ -1,14 +1,17 @@
 package com.sekar.ritxbertaniminiapp.adapter
 
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.sekar.ritxbertaniminiapp.InputLahanActivity
 import com.sekar.ritxbertaniminiapp.R
 import com.sekar.ritxbertaniminiapp.model.DataItem
 
-class LahanAdapter : RecyclerView.Adapter<LahanAdapter.ViewHolder>() {
+class LahanAdapter(private val context: Context) : RecyclerView.Adapter<LahanAdapter.ViewHolder>() {
 
     private var data: List<DataItem> = listOf()
     private var listener: OnItemClickListener? = null
@@ -36,7 +39,9 @@ class LahanAdapter : RecyclerView.Adapter<LahanAdapter.ViewHolder>() {
         holder.serialNumber.text = dataList.serialNumber
 
         holder.itemView.setOnClickListener {
-            listener!!.OnItemClick(data[position])
+//            listener!!.OnItemClick(data[position])
+            val intent = Intent(context, InputLahanActivity::class.java)
+            context.startActivity(intent)
         }
     }
 
